@@ -69,4 +69,4 @@ prod-yarn-build:
 #	echo -en "\n \033[37;1;41m marchellis.local \033[0m"
 
 echo-open-browser:
-	xdg-open http://localhost:8033/
+	xdg-open http://localhost:8061/
