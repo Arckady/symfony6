@@ -16,6 +16,8 @@ framework:
     #fragments: true
     php_errors:
         log: true
+    ide: 'phpstorm://open?file=%%f&line=%%l&/project/>/home/vladislav/techsfera-symfony/project/'
+
 
 when@test:
     framework:
