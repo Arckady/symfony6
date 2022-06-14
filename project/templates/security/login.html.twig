@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Вход в пользовательский кабинет{% endblock %}
 
 {% block body %}
 <form method="post">
@@ -39,4 +39,8 @@
         Sign in
     </button>
 </form>
+    {#
+    TODO: создать экшен для регистрации, если нужно и добавить ссылку: <a href="#" class="forgot-pass">Забыли пароль?</a><small>У вас есть аккаунт? </small><a
+            href="{{ path('app_register') }}" class="signup">Зарегистрироваться</a>
+    #}
 {% endblock %}
