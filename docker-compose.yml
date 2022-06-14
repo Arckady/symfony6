@@ -44,6 +44,7 @@ services:
 
   mailer:
     image: schickling/mailcatcher
+    container_name: ${APP_NAME}-mailer
 #    TODO: указать свободный порт
     ports:
       - "1061:1080"
