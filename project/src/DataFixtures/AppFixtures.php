@@ -3,11 +3,9 @@
 namespace App\DataFixtures;
 
 use App\Entity\Admin;
-
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-
 
 class AppFixtures extends Fixture
 {
@@ -16,7 +14,7 @@ class AppFixtures extends Fixture
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function load(ObjectManager $manager)
     {
@@ -24,13 +22,13 @@ class AppFixtures extends Fixture
         $user = new Admin();
         $user
             ->setEmail('admin@positron-it.ru')
-            ->setRoles(["ROLE_ADMIN"])
+            ->setRoles(['ROLE_ADMIN'])
             ->setPassword(
-            $this->passwordEncoder->hashPassword(
-                $user,
-                'symD3V'
-            )
-        );
+                $this->passwordEncoder->hashPassword(
+                    $user,
+                    'symD3V'
+                )
+            );
         $manager->persist($user);
 
         $manager->flush();

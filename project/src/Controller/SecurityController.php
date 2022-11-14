@@ -12,9 +12,9 @@ class SecurityController extends AbstractController
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-         if ($this->getUser()) {
-             return $this->redirectToRoute('admin');
-         }
+        if ($this->getUser()) {
+            return $this->redirectToRoute('admin');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -31,6 +31,7 @@ class SecurityController extends AbstractController
         $respnse->setContent('<h1>Это заготовка для админки из SecurityController.</h1>
          <p>По-хорошему, экшн админ панели должен быть в отдельном контроллере или генерироваться бандлом, например EasyAdmin</p>
          <p>Чтобы выйти из этого гиблого места, <a href="/logout">разлогинься</a> или <a href="/">возвращайся на сайт</a> </p>');
+
         return $respnse;
     }
 

@@ -16,7 +16,7 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
-    private ?string $email =null;
+    private ?string $email = null;
 
     #[ORM\Column(type: 'json')]
     private array $roles = [];
