@@ -5,6 +5,7 @@ init: docker-down \
 up: docker-up
 down: docker-down
 restart: down up echo-open-browser
+rebuild: down docker-build-no-pull docker-up echo-open-browser
 
 docker-up:
 	cd project && docker-compose up -d
@@ -17,6 +18,11 @@ docker-pull:
 
 docker-build:
 	cd project && docker-compose build --pull
+
+docker-build-no-pull:
+	docker-compose build
+
+fix: rebuild app-composer-install app-migrations
 
 app-php-cli-bash:
 	cd project && docker-compose run --rm php-cli bash
