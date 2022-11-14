@@ -10,7 +10,7 @@ services:
     restart: always
 #    TODO: указать свободный порт
     ports:
-      - "8061:80"
+      - ":80"
     command: nginx -g 'daemon off;'
 
   php-fpm:
@@ -47,7 +47,7 @@ services:
     container_name: ${APP_NAME}-mailer
 #    TODO: указать свободный порт
     ports:
-      - "1061:1080"
+      - ":1080"
 
   db:
     container_name: ${APP_NAME}-db
@@ -56,7 +56,7 @@ services:
       - ./volumes/db/mysql://var/lib/mysql
 #    TODO: указать свободный порт
     ports:
-      - "3361:3306"
+      - ":3306"
     restart: always
     environment:
       - MYSQL_PASSWORD=dev
