@@ -19,8 +19,11 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get -y update
 RUN apt-get -y install git
 
-# памяти не хватает для выполнения composer recipes:update
-RUN echo 'memory_limit = 256M' >> /usr/local/etc/php/conf.d/docker-php-memory_limit.ini;
+# Imagick extension
+RUN apt-get update \
+    && apt-get install -y libmagickwand-dev \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick
 
 RUN docker-php-ext-install pdo pdo_mysql zip
 RUN apt-get update && apt-get install -y unzip \

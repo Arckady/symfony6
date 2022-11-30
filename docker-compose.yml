@@ -21,7 +21,8 @@ services:
       PHP_IDE_CONFIG: "serverName=first"
     volumes:
       - ./project:/project
-      - ./docker/app_settings_php.ini:/usr/local/etc/php/conf.d/app_settings_php.ini
+      # при изменении настроек в project.ini нужен `make restart`
+      - ./docker/php-fpm/project.ini:/usr/local/etc/php/conf.d/project.ini
     container_name: ${APP_NAME}-php-fpm
     depends_on:
       - db
@@ -31,7 +32,8 @@ services:
       context: ./docker/php-cli
     volumes:
       - ./project:/project
-      - ./docker/app_settings_php.ini:/usr/local/etc/php/conf.d/app_settings_php.ini
+      # при изменении настроек в project.ini нужен `make restart`
+      - ./docker/php-cli/project.ini:/usr/local/etc/php/conf.d/project.ini
     command: sleep 10000
     container_name: ${APP_NAME}-php-cli
 

@@ -15,6 +15,11 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl
 
+RUN apt-get update \
+    # Imagick extension
+    && apt-get install -y libmagickwand-dev \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick
 
 RUN docker-php-ext-install pdo pdo_mysql
 RUN apt-get update && apt-get install -y unzip \
